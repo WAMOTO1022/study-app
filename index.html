@@ -243,9 +243,9 @@
   .hira-photo-card.broken{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#E0F2FE,#BAE6FD)}
   .hira-photo-card.broken img{display:none}
 
-  .hira-photo-card .photo-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:4px}
-  .hira-photo-card .photo-fallback svg{width:100%;height:100%}
-  .hira-photo-card.broken .photo-fallback{display:flex}
+  .hira-photo-card .photo-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:10px;text-align:center;font-size:16px;font-weight:900;line-height:1.45;color:#334155;background:linear-gradient(180deg,#E0F2FE,#BAE6FD)}
+  .hira-photo-card .photo-fallback svg{display:none!important}
+  .hira-photo-card.broken .photo-fallback{display:flex;flex-direction:column;gap:4px}
   .hira-photo-card.broken::after{content:"";display:none!important}
   .hira-emoji{font-size:min(116px,28vw);line-height:1;margin:8px 0 10px;filter:drop-shadow(0 5px 0 rgba(0,0,0,.10))}
   .hira-answer{display:flex;justify-content:center;margin:4px 0 8px}
@@ -348,6 +348,7 @@
   .subj.clock .bar > span{background:#3B82F6}
   .subj.eng .bar > span{background:#A855F7}
   .subj.minus .bar > span{background:#F59E0B}
+  .subj.multiply .bar > span{background:#EF4444}
   .subj.hiragana .bar > span{background:#EC4899}
   .subj .days{text-align:right;font-weight:900;color:#4B5563;font-size:12px}
 
@@ -373,6 +374,7 @@
   .cal-cell .stamp.clock{background:#3B82F6}
   .cal-cell .stamp.eng{background:#A855F7}
   .cal-cell .stamp.minus{background:#F59E0B}
+  .cal-cell .stamp.multiply{background:#EF4444}
   .cal-cell .stamp.hiragana{background:#EC4899}
   .cal-cell .count{position:absolute;bottom:2px;right:4px;font-size:9px;color:#059669;font-weight:900}
 
@@ -384,6 +386,7 @@
   .cal-legend .dot.clock{background:#3B82F6}
   .cal-legend .dot.eng{background:#A855F7}
   .cal-legend .dot.minus{background:#F59E0B}
+  .cal-legend .dot.multiply{background:#EF4444}
   .cal-legend .dot.hiragana{background:#EC4899}
   .cal-legend .note{width:100%;text-align:center;color:#9CA3AF;font-weight:700;font-size:10px;margin-top:4px}
 
@@ -408,6 +411,8 @@
   .course.done.hiragana .check{background:#EC4899}
   .course.done.minus{background:#FFF7ED;border-color:#F59E0B;color:#92400E}
   .course.done.minus .check{background:#F59E0B}
+  .course.done.multiply{background:#FEF2F2;border-color:#EF4444;color:#991B1B}
+  .course.done.multiply .check{background:#EF4444}
 
   /* 学習履歴 */
   .log-row{display:grid;grid-template-columns:80px 1fr auto;gap:10px;padding:9px 10px;border-radius:8px;font-size:12px;background:#F9FAFB;margin-bottom:5px;align-items:center}
@@ -489,6 +494,7 @@
     <div class="genres" id="genreTabs">
       <button class="genre active" data-genre="math">➕ たしざん</button>
       <button class="genre" data-genre="minus">➖ ひきざん</button>
+      <button class="genre" data-genre="multiply">✖️ かけざん</button>
       <button class="genre" data-genre="clock">🕐 とけい</button>
       <button class="genre" data-genre="english">🔊 えいご</button>
       <button class="genre" data-genre="hiragana">🔤 ひらがな</button>
@@ -710,6 +716,7 @@
         <div class="cal-legend">
           <span class="item"><span class="dot math"></span>算数</span>
           <span class="item"><span class="dot minus"></span>引き算</span>
+          <span class="item"><span class="dot multiply"></span>掛け算</span>
           <span class="item"><span class="dot clock"></span>時計</span>
           <span class="item"><span class="dot eng"></span>英語</span>
           <span class="item"><span class="dot hiragana"></span>ひらがな</span>
@@ -788,6 +795,18 @@
     {id:"s3",       ic:"➖", nm:"ひきざん しんかんせん マスター", ds:"ひきざん しんかんせん ぜんもんせいかい"},
     {id:"s4",       ic:"➖", nm:"ひきざん リニア マスター", ds:"ひきざん リニア ぜんもんせいかい"},
     {id:"s5",       ic:"🌟", nm:"ひきざん スペシャル マスター", ds:"ひきざん スペシャル ぜんもんせいかい"},
+    {id:"p1",       ic:"✖️", nm:"1のだん マスター", ds:"1のだん ぜんもんせいかい"},
+    {id:"p2",       ic:"✖️", nm:"2のだん マスター", ds:"2のだん ぜんもんせいかい"},
+    {id:"p3",       ic:"✖️", nm:"3のだん マスター", ds:"3のだん ぜんもんせいかい"},
+    {id:"p4",       ic:"✖️", nm:"4のだん マスター", ds:"4のだん ぜんもんせいかい"},
+    {id:"p5",       ic:"✖️", nm:"5のだん マスター", ds:"5のだん ぜんもんせいかい"},
+    {id:"p6",       ic:"✖️", nm:"6のだん マスター", ds:"6のだん ぜんもんせいかい"},
+    {id:"p7",       ic:"✖️", nm:"7のだん マスター", ds:"7のだん ぜんもんせいかい"},
+    {id:"p8",       ic:"✖️", nm:"8のだん マスター", ds:"8のだん ぜんもんせいかい"},
+    {id:"p9",       ic:"✖️", nm:"9のだん マスター", ds:"9のだん ぜんもんせいかい"},
+    {id:"pe",       ic:"✖️", nm:"やさしいランダム マスター", ds:"1〜4のだん ぜんもんせいかい"},
+    {id:"pn",       ic:"✖️", nm:"ふつうランダム マスター", ds:"1〜6のだん ぜんもんせいかい"},
+    {id:"pa",       ic:"✖️", nm:"ぜんぶランダム マスター", ds:"1〜9のだん ぜんもんせいかい"},
     {id:"tokyo",    ic:"🗼", nm:"とうきょう とうちゃく", ds:"とうきょう まで すすんだ"},
     {id:"sapporo",  ic:"🏆", nm:"さっぽろ せいは！",     ds:"さっぽろ に とうちゃく！"},
     {id:"all",      ic:"👑", nm:"ぜんモード せいは",      ds:"ぜんぶの れっしゃで マスター"},
@@ -825,12 +844,27 @@
     {id:"sub_2d2d",      type:"minus", cls:"m4", name:"リニアモーターカー",   desc:"2けた − 2けた", svg:`<svg viewBox="0 0 60 40"><path d="M2 26 L2 18 Q2 14 8 12 L32 7 Q54 5 58 16 L58 26 Q58 30 54 30 L6 30 Q2 30 2 26 Z" fill="#fff" stroke="#00838F" stroke-width="2"/><path d="M2 22 L58 22 L58 25 L2 25 Z" fill="#00BCD4"/><path d="M32 7 Q52 7 57 15 L25 15 Z" fill="#0097A7"/><rect x="10" y="16" width="5" height="4" rx="1" fill="#004D60"/><rect x="18" y="16" width="5" height="4" rx="1" fill="#004D60"/><rect x="26" y="16" width="5" height="4" rx="1" fill="#004D60"/><rect x="2" y="30" width="56" height="2" fill="#B2EBF2"/></svg>`, trophy:"s4"},
     {id:"sub_special",   type:"minus", cls:"m5", name:"スペシャル",           desc:"2けた（20まで）− 1けた − 1けた ドクターイエロー", svg:`<svg viewBox="0 0 60 40"><path d="M2 28 L2 16 Q2 12 8 10 L40 6 Q56 6 58 16 L58 28 Q58 32 54 32 L6 32 Q2 32 2 28 Z" fill="#FFD700" stroke="#8B6914" stroke-width="2"/><path d="M2 21 L58 21 L58 25 L2 25 Z" fill="#003E7E"/><path d="M40 6 Q52 8 56 14 L30 14 Z" fill="#FFF176" opacity=".9"/><rect x="10" y="15" width="6" height="5" rx="1" fill="#8B6914"/><rect x="20" y="15" width="6" height="5" rx="1" fill="#8B6914"/><rect x="30" y="15" width="6" height="5" rx="1" fill="#8B6914"/><circle cx="14" cy="32" r="3" fill="#222"/><circle cx="46" cy="32" r="3" fill="#222"/></svg>`, trophy:"s5"},
 
-    // ひらがなモード（絵だけを見て、あいうえお順キーボードで入力）
+
+    // 掛け算モード（段ごとは 1〜9 + その段だけのランダム5問）
+    {id:"mul_1", type:"multiply", cls:"m1", name:"1のだん", desc:"1×1〜1×9 ＋ 1のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p1"},
+    {id:"mul_2", type:"multiply", cls:"m2", name:"2のだん", desc:"2×1〜2×9 ＋ 2のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p2"},
+    {id:"mul_3", type:"multiply", cls:"m3", name:"3のだん", desc:"3×1〜3×9 ＋ 3のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p3"},
+    {id:"mul_4", type:"multiply", cls:"m4", name:"4のだん", desc:"4×1〜4×9 ＋ 4のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p4"},
+    {id:"mul_5", type:"multiply", cls:"m5", name:"5のだん", desc:"5×1〜5×9 ＋ 5のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p5"},
+    {id:"mul_6", type:"multiply", cls:"m1", name:"6のだん", desc:"6×1〜6×9 ＋ 6のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p6"},
+    {id:"mul_7", type:"multiply", cls:"m2", name:"7のだん", desc:"7×1〜7×9 ＋ 7のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p7"},
+    {id:"mul_8", type:"multiply", cls:"m3", name:"8のだん", desc:"8×1〜8×9 ＋ 8のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p8"},
+    {id:"mul_9", type:"multiply", cls:"m4", name:"9のだん", desc:"9×1〜9×9 ＋ 9のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p9"},
+    {id:"mul_easy", type:"multiply", cls:"m2", name:"やさしいランダム", desc:"1〜4のだんから 5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pe"},
+    {id:"mul_normal", type:"multiply", cls:"m3", name:"ふつうランダム", desc:"1〜6のだんから 5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pn"},
+    {id:"mul_all", type:"multiply", cls:"m5", name:"ぜんぶランダム", desc:"1〜9のだんから 5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pa"},
+
+    // ひらがなモード（絵だけを見て、4択で選ぶ）
     {id:"hira_fruits",   type:"hiragana", cls:"m1", name:"フルーツ",   desc:"くだものの えを ひらがなで", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="6" fill="#EF5350" stroke="#B71C1C" stroke-width="2"/><text x="27" y="30" text-anchor="middle" font-size="22">🍎</text></svg>`, trophy:"h1"},
     {id:"hira_animals",  type:"hiragana", cls:"m2", name:"どうぶつ",   desc:"どうぶつの えを ひらがなで", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="6" fill="#8D6E63" stroke="#4E342E" stroke-width="2"/><text x="27" y="30" text-anchor="middle" font-size="22">🐶</text></svg>`, trophy:"h2"},
     {id:"hira_foods",    type:"hiragana", cls:"m3", name:"たべもの",   desc:"たべものの えを ひらがなで", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="6" fill="#FFB300" stroke="#E65100" stroke-width="2"/><text x="27" y="30" text-anchor="middle" font-size="22">🍙</text></svg>`, trophy:"h3"},
     {id:"hira_vehicles", type:"hiragana", cls:"m4", name:"のりもの",   desc:"のりものの えを ひらがなで", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="6" fill="#29B6F6" stroke="#01579B" stroke-width="2"/><text x="27" y="30" text-anchor="middle" font-size="22">🚗</text></svg>`, trophy:"h4"},
-    {id:"hira_mix",      type:"hiragana", cls:"m5", name:"スペシャル", desc:"JR東日本・東京メトロの でんしゃ写真", svg:modeTrainPhotoIcon('https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Series-E5-U44_Hayabusa-2.jpg/960px-Series-E5-U44_Hayabusa-2.jpg','写真'), trophy:"h5"},
+    {id:"hira_mix",      type:"hiragana", cls:"m5", name:"スペシャル", desc:"首都圏のでんしゃ写真 50しゅるい", svg:modeTrainPhotoIcon('Series-E5-U44_Hayabusa-2.jpg','写真'), trophy:"h5"},
     // 時計モード
     {id:"clock_hour", type:"clock", cls:"m1", name:"ぴったり じかん",   desc:"〇じ ちょうど（3じ/6じ etc）", svg:`<svg viewBox="0 0 54 40"><circle cx="27" cy="20" r="16" fill="#fff" stroke="#0D2E4E" stroke-width="2"/><circle cx="27" cy="20" r="12" fill="#FFFDE7"/><line x1="27" y1="20" x2="27" y2="12" stroke="#0B6FC6" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="20" x2="35" y2="20" stroke="#E4002B" stroke-width="1.8" stroke-linecap="round"/><circle cx="27" cy="20" r="1.5" fill="#0D2E4E"/></svg>`, trophy:"ct1"},
     {id:"clock_half", type:"clock", cls:"m2", name:"30ぷん じかん",     desc:"〇じ 00ふん/30ふん",            svg:`<svg viewBox="0 0 54 40"><circle cx="27" cy="20" r="16" fill="#fff" stroke="#0D2E4E" stroke-width="2"/><circle cx="27" cy="20" r="12" fill="#FFFDE7"/><line x1="27" y1="20" x2="27" y2="28" stroke="#E4002B" stroke-width="1.8" stroke-linecap="round"/><line x1="27" y1="20" x2="31" y2="16" stroke="#0B6FC6" stroke-width="2.5" stroke-linecap="round"/><circle cx="27" cy="20" r="1.5" fill="#0D2E4E"/></svg>`, trophy:"ct2"},
@@ -962,12 +996,13 @@
     return `<div class="mode-photo-icon"><img src="${commonsPhotoUrl(fileNameOrUrl, 240)}" alt="" loading="eager"><span>${label}</span></div>`;
   }
 
-  function photoTrainArt(fileNameOrUrl, _label='', _labelColor='#003E7E', fallbackKind='hayabusa'){
+  function photoTrainArt(fileNameOrUrl, _label='', _labelColor='#003E7E', fallbackKind=''){
     const src = commonsPhotoUrl(fileNameOrUrl, 900);
     // 問題写真の中に「つばさ」「丸ノ内線」など答えになる文字を出さない。
+    // 画像失敗時も答え文字や代替電車イラストを出さない。
     return `<div class="hira-photo-card" data-file="${String(fileNameOrUrl).replace(/"/g,'&quot;')}">
       <img src="${src}" alt="" loading="eager" referrerpolicy="no-referrer" onload="this.parentElement.classList.add('loaded')" onerror="this.parentElement.classList.add('broken')">
-      <div class="photo-fallback">${trainSvg(fallbackKind)}</div>
+      <div class="photo-fallback"><div style="font-size:30px">📷</div><div>しゃしんを<br>よみこめません</div></div>
     </div>`;
   }
 
@@ -998,31 +1033,60 @@
       {ja:"きしゃ",emoji:"🚂",art:popEmojiArt('🚂','#F5E7D6','#D7B899','#475569')},{ja:"ろーぷうぇい",emoji:"🚡",art:popEmojiArt('🚡','#E0F2FE','#BAE6FD','#0284C7')},{ja:"もくば",emoji:"🎠",art:popEmojiArt('🎠','#FCE7F3','#FBCFE8','#DB2777')}
     ]
   };
-  // スペシャル：JR東日本・東京メトロの電車。
-  // 5歳でも判別しやすいように、Wikimedia Commons の自由利用可能な実車写真を表示する。
-  // 画像の利用条件は各Commonsページ（CC BY / CC BY-SA等）に従う。
+  // スペシャル：首都圏のでんしゃ50種類。
+  // Wikipedia/Wikimediaの動的検索は使わず、Commonsの固定ファイル名だけを使う。
+  // 問題画像には答えになる文字ラベルを出さない。画像失敗時も答え文字なし。
   HIRAGANA_WORDS.mix = [
-    {ja:"はやぶさ",emoji:"🚄",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Series-E5-U44_Hayabusa-2.jpg/960px-Series-E5-U44_Hayabusa-2.jpg','','#13B8C8','hayabusa')},
-    {ja:"こまち",emoji:"🚄",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Series-E6_Z14_Komachi.jpg/960px-Series-E6_Z14_Komachi.jpg','','#D51D3F','komachi')},
-    {ja:"かがやき",emoji:"🚄",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/SeriesE7-F19.jpg/960px-SeriesE7-F19.jpg','','#2563EB','kagayaki')},
-    {ja:"つばさ",emoji:"🚄",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Series-E3-1000_L53_Tsubasa.jpg/960px-Series-E3-1000_L53_Tsubasa.jpg','','#6D28D9','tsubasa')},
-    {ja:"やまのてせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/JR_EAST_YAMANOTE_LINE_E235.jpg/960px-JR_EAST_YAMANOTE_LINE_E235.jpg','','#84CC16','toki')},
-    {ja:"ちゅうおうせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/JRE_Chuo-Rapid-Line_Series-E233-0.jpg/960px-JRE_Chuo-Rapid-Line_Series-E233-0.jpg','','#F97316','toki')},
-    {ja:"けいひんとうほくせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/4/4b/Series-E233-1000-113.jpg','','#0EA5E9','toki')},
-    {ja:"そうぶせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Series-E231-800-K5.jpg/960px-Series-E231-800-K5.jpg','','#FACC15','toki')},
-    {ja:"けいようせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/JRKeiyo_Line_Series_E233.JPG/960px-JRKeiyo_Line_Series_E233.JPG','','#DC2626','toki')},
-    {ja:"さいきょうせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/JR_East_E233-7000_Series_Saiky%C5%8D_Line_at_Itabashi_Station.jpg/960px-JR_East_E233-7000_Series_Saiky%C5%8D_Line_at_Itabashi_Station.jpg','','#16A34A','toki')},
-    {ja:"じょうばんせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/JRE_Series-E231-0_111.jpg/960px-JRE_Series-E231-0_111.jpg','','#22C55E','toki')},
-    {ja:"よこすかせん",emoji:"🚃",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Series-E235-1000_F35.jpg/960px-Series-E235-1000_F35.jpg','','#1D4ED8','toki')},
-
-    {ja:"ぎんざせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Tokyo_Metro_1000_ginza_line.JPG/960px-Tokyo_Metro_1000_ginza_line.JPG','','#F59E0B','ginza')},
-    {ja:"まるのうちせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tokyo-Metro_Series2000-2026.jpg/960px-Tokyo-Metro_Series2000-2026.jpg','','#DC2626','marunouchi')},
-    {ja:"ひびやせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Tokyo-Metro-Series13000.jpg/960px-Tokyo-Metro-Series13000.jpg','','#9CA3AF','hibiya')},
-    {ja:"とうざいせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tokyo-Metro_Series15000-15001.jpg/960px-Tokyo-Metro_Series15000-15001.jpg','','#0284C7','tozai')},
-    {ja:"ちよだせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tokyo-Metro_Series16000-16031.jpg/960px-Tokyo-Metro_Series16000-16031.jpg','','#16A34A','chiyoda')},
-    {ja:"ゆうらくちょうせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tokyo-Metro-Series17000_17005.jpg/960px-Tokyo-Metro-Series17000_17005.jpg','','#C084FC','yurakucho')},
-    {ja:"はんぞうもんせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/2/22/Hanzomon-Line_Series18000-18005.jpg','','#7E22CE','hanzomon')},
-    {ja:"なんぼくせん",emoji:"🚇",art:photoTrainArt('https://upload.wikimedia.org/wikipedia/commons/f/fc/Tokyo-Metro_Series9000-9822.jpg','','#10B981','namboku')}
+    {ja:"はやぶさ",emoji:"🚃",line:"JR東日本 E5系",art:photoTrainArt('Series-E5-U44_Hayabusa-2.jpg','','#13B8C8')},
+    {ja:"こまち",emoji:"🚃",line:"JR東日本 E6系",art:photoTrainArt('Series-E6_Z14_Komachi.jpg','','#D51D3F')},
+    {ja:"かがやき",emoji:"🚃",line:"JR東日本 E7系",art:photoTrainArt('SeriesE7-F19.jpg','','#2563EB')},
+    {ja:"つばさ",emoji:"🚃",line:"JR東日本 E3系",art:photoTrainArt('Series-E3-1000_L53_Tsubasa.jpg','','#6D28D9')},
+    {ja:"やまのてせん",emoji:"🚃",line:"JR東日本 山手線",art:photoTrainArt('JR_EAST_YAMANOTE_LINE_E235.jpg','','#84CC16')},
+    {ja:"ちゅうおうせん",emoji:"🚃",line:"JR東日本 中央線",art:photoTrainArt('JRE_Chuo-Rapid-Line_Series-E233-0.jpg','','#F97316')},
+    {ja:"けいひんとうほくせん",emoji:"🚃",line:"JR東日本 京浜東北線",art:photoTrainArt('Series-E233-1000-113.jpg','','#0EA5E9')},
+    {ja:"そうぶせん",emoji:"🚃",line:"JR東日本 総武線",art:photoTrainArt('Series-E231-800-K5.jpg','','#FACC15')},
+    {ja:"けいようせん",emoji:"🚃",line:"JR東日本 京葉線",art:photoTrainArt('JRKeiyo_Line_Series_E233.JPG','','#DC2626')},
+    {ja:"さいきょうせん",emoji:"🚃",line:"JR東日本 埼京線",art:photoTrainArt('JR_East_E233-7000_Series_Saikyō_Line_at_Itabashi_Station.jpg','','#16A34A')},
+    {ja:"じょうばんせん",emoji:"🚃",line:"JR東日本 常磐線",art:photoTrainArt('JRE_Series-E231-0_111.jpg','','#22C55E')},
+    {ja:"よこすかせん",emoji:"🚃",line:"JR東日本 横須賀線",art:photoTrainArt('Series-E235-1000_F35.jpg','','#1D4ED8')},
+    {ja:"しょうなんしんじゅくせん",emoji:"🚃",line:"JR東日本 湘南新宿ライン",art:photoTrainArt('E231-1000_K-02_Ikebukuro_20050712.jpg','','#13B8C8')},
+    {ja:"なんぶせん",emoji:"🚃",line:"JR東日本 南武線",art:photoTrainArt('JR_East_E233-8000.JPG','','#D51D3F')},
+    {ja:"よこはません",emoji:"🚃",line:"JR東日本 横浜線",art:photoTrainArt('Yokohama_Line_E233-6000_Fuchinobe_20140622.jpg','','#2563EB')},
+    {ja:"むさしのせん",emoji:"🚃",line:"JR東日本 武蔵野線",art:photoTrainArt('E231-0_Series_Musashino_Line_of_JR_East.jpg','','#6D28D9')},
+    {ja:"ぎんざせん",emoji:"🚃",line:"東京メトロ 銀座線",art:photoTrainArt('Tokyo_Metro_1000_ginza_line.JPG','','#84CC16')},
+    {ja:"まるのうちせん",emoji:"🚃",line:"東京メトロ 丸ノ内線",art:photoTrainArt('Tokyo-Metro_Series2000-2026.jpg','','#F97316')},
+    {ja:"ひびやせん",emoji:"🚃",line:"東京メトロ 日比谷線",art:photoTrainArt('Tokyo-Metro-Series13000.jpg','','#0EA5E9')},
+    {ja:"とうざいせん",emoji:"🚃",line:"東京メトロ 東西線",art:photoTrainArt('Tokyo-Metro_Series15000-15001.jpg','','#FACC15')},
+    {ja:"ちよだせん",emoji:"🚃",line:"東京メトロ 千代田線",art:photoTrainArt('Tokyo-Metro_Series16000-16031.jpg','','#DC2626')},
+    {ja:"ゆうらくちょうせん",emoji:"🚃",line:"東京メトロ 有楽町線",art:photoTrainArt('Tokyo-Metro-Series17000_17005.jpg','','#16A34A')},
+    {ja:"はんぞうもんせん",emoji:"🚃",line:"東京メトロ 半蔵門線",art:photoTrainArt('Tokyo-Metro_Series18000-18004.jpg','','#22C55E')},
+    {ja:"なんぼくせん",emoji:"🚃",line:"東京メトロ 南北線",art:photoTrainArt('Tokyo-Metro-Series9000-Lot-2.jpg','','#1D4ED8')},
+    {ja:"ふくとしんせん",emoji:"🚃",line:"東京メトロ 副都心線",art:photoTrainArt('Tokyo-Metro_Series17000-17192_Shibuya-STA.jpg','','#13B8C8')},
+    {ja:"あさくさせん",emoji:"🚃",line:"都営浅草線",art:photoTrainArt('Toei_5500_series_set_5525_@_Ningyocho_Station,_Tokyo.jpg','','#D51D3F')},
+    {ja:"みたせん",emoji:"🚃",line:"都営三田線",art:photoTrainArt('Toei-subway-6334F-20191230-124928.jpg','','#2563EB')},
+    {ja:"しんじゅくせん",emoji:"🚃",line:"都営新宿線",art:photoTrainArt('Toei_10-300_series_3th-batch_Keio_Sagamihara_Line_20170619.jpg','','#6D28D9')},
+    {ja:"おおえどせん",emoji:"🚃",line:"都営大江戸線",art:photoTrainArt('Toei_12-600_61F_Rear.jpg','','#84CC16')},
+    {ja:"とでんあらかわせん",emoji:"🚃",line:"東京さくらトラム",art:photoTrainArt('Toden8800_4colors_20101225.jpg','','#F97316')},
+    {ja:"にっぽりとねりらいなー",emoji:"🚃",line:"日暮里・舎人ライナー",art:photoTrainArt('Nippori-Toneri-Liner_Type300-03.jpg','','#0EA5E9')},
+    {ja:"けいせいすかいらいなー",emoji:"🚃",line:"京成スカイライナー",art:photoTrainArt('Keisei_AE_Skyliner_Keisei_Main_Line_over_the_Horikiri_Bridge_2020-06-27.jpg','','#FACC15')},
+    {ja:"けいせいせん",emoji:"🚃",line:"京成本線",art:photoTrainArt('Keisei_3000_Series_3033_Formation.jpg','','#DC2626')},
+    {ja:"ほくそうせん",emoji:"🚃",line:"北総線",art:photoTrainArt('Hokuso_7300.JPG','','#16A34A')},
+    {ja:"とうぶすぺーしあ",emoji:"🚃",line:"東武スペーシアX",art:photoTrainArt('Tobu_Series-N100-N101.jpg','','#22C55E')},
+    {ja:"とうぶりばてぃ",emoji:"🚃",line:"東武リバティ",art:photoTrainArt('Tobu-Series500_Revaty.jpg','','#1D4ED8')},
+    {ja:"とうぶせん",emoji:"🚃",line:"東武線",art:photoTrainArt('Series_50000_of_Tobu_Railway.jpg','','#13B8C8')},
+    {ja:"けいきゅうせん",emoji:"🚃",line:"京急線",art:photoTrainArt('Keikyu-railway-1891F-20210621-123918.jpg','','#D51D3F')},
+    {ja:"けいきゅうぶるーすかい",emoji:"🚃",line:"京急ブルースカイトレイン",art:photoTrainArt('Keikyu_600_Series_(Blue_Sky_Train).jpg','','#2563EB')},
+    {ja:"おだきゅうろまんすかー",emoji:"🚃",line:"小田急ロマンスカー",art:photoTrainArt('Odakyu_70000_series_GSE_Haruhino_Station_20180208.jpg','','#6D28D9')},
+    {ja:"おだきゅうせん",emoji:"🚃",line:"小田急線",art:photoTrainArt('Odakyu_4000_series_at_Odawara-Sta_01.jpg','','#84CC16')},
+    {ja:"せいぶらびゅー",emoji:"🚃",line:"西武Laview",art:photoTrainArt('Seibu_series001_Laview.jpg','','#F97316')},
+    {ja:"せいぶせん",emoji:"🚃",line:"西武線",art:photoTrainArt('Seibu_30000_series_32105_Shin-Tokorozawa_20130910.jpg','','#0EA5E9')},
+    {ja:"けいおうせん",emoji:"🚃",line:"京王線",art:photoTrainArt('Keio-Series5000-5733.jpg','','#FACC15')},
+    {ja:"いのかしらせん",emoji:"🚃",line:"京王井の頭線",art:photoTrainArt('Keio_Series1000-1762.jpg','','#DC2626')},
+    {ja:"とうきゅうせん",emoji:"🚃",line:"東急線",art:photoTrainArt('Tokyu-Series5000-5106.jpg','','#16A34A')},
+    {ja:"でんえんとしせん",emoji:"🚃",line:"東急田園都市線",art:photoTrainArt('Tokyu-Series2020-2126F.jpg','','#22C55E')},
+    {ja:"つくばえくすぷれす",emoji:"🚃",line:"つくばエクスプレス",art:photoTrainArt('TX_Series3000-3685.jpg','','#1D4ED8')},
+    {ja:"ゆりかもめ",emoji:"🚃",line:"ゆりかもめ",art:photoTrainArt('Yurikamome_Series7300-33.jpg','','#13B8C8')},
+    {ja:"りんかいせん",emoji:"🚃",line:"りんかい線",art:photoTrainArt('Twr_70-000.jpg','','#D51D3F')}
   ];
   // Adult-level situations (parent-requested high-difficulty mode for grown-ups)
   const SITUATIONS = [
@@ -1240,6 +1304,10 @@
       $('boardTitle').textContent = '◀ ひきざん れっしゃを えらぼう ▶';
       $('menuTitle').textContent = 'ひきざん チャレンジ';
       $('menuSubtitle').textContent = 'こたえは 0 にも マイナスにも ならないよ！';
+    } else if (currentGenre === 'multiply'){
+      $('boardTitle').textContent = '◀ かけざん れっしゃを えらぼう ▶';
+      $('menuTitle').textContent = 'かけざん チャレンジ';
+      $('menuSubtitle').textContent = 'だんごとは 1〜9 のあと、そのだんだけのランダム5もん！';
     } else if (currentGenre === 'hiragana'){
       $('boardTitle').textContent = '◀ ひらがな れんしゅう ▶';
       $('menuTitle').textContent = 'えを みて ひらがなで こたえよう';
@@ -1304,6 +1372,41 @@
   }
 
 
+  function mulQuestion(a,b){
+    return {kind:'math', text:`${a} × ${b} =`, ans:a*b};
+  }
+
+  function makeMultiplicationRangePool(maxDan){
+    const pool = [];
+    for (let a=1; a<=maxDan; a++) for (let b=1; b<=9; b++) pool.push(mulQuestion(a,b));
+    return pool;
+  }
+
+  function buildMultiplicationQuestions(mode){
+    // 1〜9の段：固定9問 + その段だけからランダム5問。ランダム5問内は重複なし。
+    const m = /^mul_(\d)$/.exec(mode || '');
+    if (m){
+      const dan = parseInt(m[1], 10);
+      const fixed = [];
+      for (let b=1; b<=9; b++) fixed.push(mulQuestion(dan,b));
+      const nums = [1,2,3,4,5,6,7,8,9].sort(()=>Math.random()-0.5).slice(0,5);
+      const bonus = nums.map(b=>mulQuestion(dan,b));
+      return fixed.concat(bonus);
+    }
+    let maxDan = 9;
+    if (mode === 'mul_easy') maxDan = 4;
+    else if (mode === 'mul_normal') maxDan = 6;
+    else if (mode === 'mul_all') maxDan = 9;
+    const pool = makeMultiplicationRangePool(maxDan).sort(()=>Math.random()-0.5);
+    return pool.slice(0,5);
+  }
+
+  function makeMultiplicationQuestion(mode){
+    const qs = buildMultiplicationQuestions(mode);
+    return qs[Math.floor(Math.random()*qs.length)];
+  }
+
+
 
   function makeHiraganaPool(mode){
     const cat = mode.replace('hira_','');
@@ -1337,6 +1440,7 @@
     let a,b,c,tries;
     // 算数
     if (mode && mode.startsWith('sub_')) return makeSubtractionQuestion(mode);
+    if (mode && mode.startsWith('mul_')) return makeMultiplicationQuestion(mode);
     if (mode && mode.startsWith('hira_')) return makeHiraganaQuestion(mode);
     if (mode==='1d1d_low'){ do{a=rnd(1,9);b=rnd(1,9);}while(a+b>10); return {kind:'math',text:`${a} + ${b} =`,ans:a+b}; }
     if (mode==='1d1d_high'){ do{a=rnd(1,9);b=rnd(1,9);}while(a+b<10||a+b>20); return {kind:'math',text:`${a} + ${b} =`,ans:a+b}; }
@@ -1486,6 +1590,9 @@
     if (mode && mode.startsWith('hira_')){
       return makeHiraganaPool(mode).sort(()=>Math.random()-0.5).slice(0,count);
     }
+    if (mode && mode.startsWith('mul_')){
+      return buildMultiplicationQuestions(mode);
+    }
     const seen=new Set(), list=[];
     let safety=0;
     while(list.length<count && safety < count*20){
@@ -1594,7 +1701,7 @@
       qLabel.textContent=`NEXT STATION ・ もんだい ${state.i+1}`;
       const parts=q.text.split(' ');
       const html=parts.map(p=>{
-        if(p==='+'||p==='-') return `<span class="op">${p}</span>`;
+        if(p==='+'||p==='-'||p==='×') return `<span class="op">${p}</span>`;
         if(p==='=') return `<span class="eq">=</span>`;
         return `<span>${p}</span>`;
       }).join(' ');
@@ -2032,6 +2139,7 @@
     const studiedDays = monthKeys.length;
     const monthMath  = monthKeys.filter(k=>hist[k].math).length;
     const monthMinus = monthKeys.filter(k=>hist[k].minus).length;
+    const monthMultiply = monthKeys.filter(k=>hist[k].multiply).length;
     const monthClock = monthKeys.filter(k=>hist[k].clock).length;
     const monthEng   = monthKeys.filter(k=>hist[k].english).length;
     const monthHira  = monthKeys.filter(k=>hist[k].hiragana).length;
@@ -2061,10 +2169,11 @@
     `;
 
     // 科目別
-    const maxDays = Math.max(1, monthMath, monthMinus, monthClock, monthEng, monthHira);
+    const maxDays = Math.max(1, monthMath, monthMinus, monthMultiply, monthClock, monthEng, monthHira);
     $('subjectBars').innerHTML = `
       <div class="subj math"><div class="name">算数</div><div class="bar"><span style="width:${monthMath/maxDays*100}%"></span></div><div class="days">${monthMath}日</div></div>
       <div class="subj minus"><div class="name">引き算</div><div class="bar"><span style="width:${monthMinus/maxDays*100}%"></span></div><div class="days">${monthMinus}日</div></div>
+      <div class="subj multiply"><div class="name">掛け算</div><div class="bar"><span style="width:${monthMultiply/maxDays*100}%"></span></div><div class="days">${monthMultiply}日</div></div>
       <div class="subj clock"><div class="name">時計</div><div class="bar"><span style="width:${monthClock/maxDays*100}%"></span></div><div class="days">${monthClock}日</div></div>
       <div class="subj eng"><div class="name">英語</div><div class="bar"><span style="width:${monthEng/maxDays*100}%"></span></div><div class="days">${monthEng}日</div></div>
       <div class="subj hiragana"><div class="name">ひらがな</div><div class="bar"><span style="width:${monthHira/maxDays*100}%"></span></div><div class="days">${monthHira}日</div></div>
@@ -2074,6 +2183,7 @@
     const groups = [
       {key:'math',    label:'➕ 算数'},
       {key:'minus',   label:'➖ 引き算'},
+      {key:'multiply', label:'✖️ 掛け算'},
       {key:'clock',   label:'🕐 時計'},
       {key:'english', label:'🔊 英語'},
       {key:'hiragana', label:'🔤 ひらがな'}
@@ -2118,6 +2228,7 @@
       if (rec){
         if (rec.math)    { stamps += '<span class="stamp math"></span>'; count++; }
         if (rec.minus)   { stamps += '<span class="stamp minus"></span>'; count++; }
+        if (rec.multiply){ stamps += '<span class="stamp multiply"></span>'; count++; }
         if (rec.clock)   { stamps += '<span class="stamp clock"></span>'; count++; }
         if (rec.english) { stamps += '<span class="stamp eng"></span>'; count++; }
         if (rec.hiragana){ stamps += '<span class="stamp hiragana"></span>'; count++; }
@@ -2132,7 +2243,7 @@
     $('calNext').addEventListener('click', ()=>{ calView=new Date(y,m+1,1); renderCalendar(); });
 
     // 学習履歴（直近30件） + 過去日次データのフォールバック
-    const subjLabel = {math:'算数', minus:'引き算', clock:'時計', english:'英語', hiragana:'ひらがな'};
+    const subjLabel = {math:'算数', minus:'引き算', multiply:'掛け算', clock:'時計', english:'英語', hiragana:'ひらがな'};
     const log = (save.log || []).slice();
     // 過去の history からも履歴を補完（log以前の日次サマリ）
     const logDates = new Set(log.map(e => todayKey(new Date(e.ts))));
@@ -2143,6 +2254,7 @@
       const subjects = [];
       if (r.math)    subjects.push('算数');
       if (r.minus)   subjects.push('引き算');
+      if (r.multiply) subjects.push('掛け算');
       if (r.clock)   subjects.push('時計');
       if (r.english) subjects.push('英語');
       if (r.hiragana) subjects.push('ひらがな');
