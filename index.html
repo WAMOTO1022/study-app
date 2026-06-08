@@ -8,6 +8,9 @@
 <meta name="theme-color" content="#003E7E" />
 <link rel="icon" href="icon-192.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="icon-192.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet" />
 <link rel="manifest" href="manifest.webmanifest" />
 <meta property="og:title" content="けいさんトレイン — 新幹線で日本縦断！" />
 <meta property="og:description" content="算数・時計・英語を楽しく学べる小学生向け学習アプリ。" />
@@ -33,8 +36,9 @@
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;height:100%}
+  button,input,select,textarea{font-family:inherit}
   body{
-    font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Rounded Mplus 1c",system-ui,sans-serif;
+    font-family:"Kosugi Maru","Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Rounded Mplus 1c",system-ui,sans-serif;
     color:var(--ink);
     background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 65%,#F2E6C8 100%);
     min-height:100%;overflow-x:hidden;
@@ -127,7 +131,7 @@
   .station{background:linear-gradient(180deg,#083876,#0B4E94);color:#fff;border-radius:14px;padding:16px;margin-top:8px;border:4px solid #fff;outline:4px solid #083876;position:relative}
   .station::before{content:"";position:absolute;left:14px;top:14px;right:14px;bottom:14px;border:2px solid rgba(255,255,255,.2);border-radius:8px;pointer-events:none}
   .qLabel{font-size:12px;font-weight:900;letter-spacing:.15em;opacity:.85;text-align:center}
-  .qFormula{font-family:"DIN Alternate","Helvetica Neue",sans-serif;font-size:clamp(36px,8vw,60px);font-weight:900;letter-spacing:.05em;text-align:center;margin-top:8px;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+  .qFormula{font-family:"Kosugi Maru","DIN Alternate","Helvetica Neue",sans-serif;font-size:clamp(36px,8vw,60px);font-weight:900;letter-spacing:.05em;text-align:center;margin-top:8px;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
   .qFormula .op{color:#FFD200}
   .qFormula .eq{color:#FF9A3C}
   .answer{display:inline-block;min-width:110px;padding:2px 18px;border-radius:10px;background:#FFD200;color:#0E2A47;border:3px solid #fff}
@@ -274,18 +278,24 @@
   .writing-stage{width:min(410px,92vw);margin:0 auto;background:#FFFBEB;border:5px solid #fff;border-radius:24px;box-shadow:0 8px 0 rgba(0,0,0,.10);overflow:hidden;position:relative;touch-action:none;user-select:none}
   .writing-stage svg{width:100%;height:auto;display:block;touch-action:none;user-select:none;background:radial-gradient(circle at 28% 18%,rgba(255,255,255,.9),transparent 30%),linear-gradient(180deg,#FFFBEB,#FEF3C7)}
   .writing-grid line{stroke:#FBD38D;stroke-width:1.2;stroke-dasharray:5 7;opacity:.75}
-  .writing-shape-shadow{fill:#fff;stroke:#fff;stroke-width:34;stroke-linejoin:round;opacity:.98;pointer-events:none}
-  .writing-shape-guide{stroke:#fff;stroke-width:14;stroke-linejoin:round;opacity:.88;pointer-events:none}
-  .writing-shape-muted{fill:#CBD5E1;stroke:#fff;stroke-width:10;stroke-linejoin:round;opacity:.22;pointer-events:none}
-  .writing-shape-done{stroke:#fff;stroke-width:12;stroke-linejoin:round;opacity:.55;pointer-events:none}
-  .writing-path-shadow{fill:none;stroke:#fff;stroke-width:86;stroke-linecap:round;stroke-linejoin:round;opacity:.86}
-  .writing-path-guide{fill:none;stroke-width:54;stroke-linecap:round;stroke-linejoin:round;opacity:.72}
-  .writing-path-muted{fill:none;stroke:#CBD5E1;stroke-width:42;stroke-linecap:round;stroke-linejoin:round;opacity:.32}
-  .writing-path-done{fill:none;stroke-width:48;stroke-linecap:round;stroke-linejoin:round;opacity:.42}
-  .writing-path-hit{fill:none;stroke:transparent;stroke-width:130;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
-  .writing-demo-line{fill:none;stroke-width:54;stroke-linecap:round;stroke-linejoin:round;opacity:.95;pathLength:100;stroke-dasharray:100;stroke-dashoffset:100;animation:writingDraw .85s ease-out forwards;animation-delay:var(--delay,0s)}
+  .writing-font-base{font-family:"Kosugi Maru","Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Rounded Mplus 1c",sans-serif;font-size:700px;font-weight:400;text-anchor:middle;dominant-baseline:central;paint-order:stroke;pointer-events:none}
+  .writing-font-shadow{fill:#fff;stroke:#fff;stroke-width:42;opacity:.96}
+  .writing-font-guide{fill:#FDBA74;stroke:#fff;stroke-width:14;opacity:.30}
+  .writing-font-demo{fill:#FDBA74;stroke:#fff;stroke-width:14;opacity:.40}
+  .writing-font-done{fill:#94A3B8;stroke:#fff;stroke-width:10;opacity:.18}
+  .writing-glyph-guide{font-family:"Kosugi Maru","Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Rounded Mplus 1c",sans-serif;font-size:640px;font-weight:400;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#fff;stroke-width:14;fill:#FB923C;opacity:.42;pointer-events:none}
+  .writing-glyph-muted{font-family:"Kosugi Maru","Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Rounded Mplus 1c",sans-serif;font-size:640px;font-weight:400;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#fff;stroke-width:12;fill:#CBD5E1;opacity:.24;pointer-events:none}
+  .writing-glyph-demo{font-family:"Kosugi Maru","Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Rounded Mplus 1c",sans-serif;font-size:640px;font-weight:400;text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#fff;stroke-width:14;fill:#FB923C;opacity:.72;pointer-events:none;animation:writingGlyphPop .9s ease-out both}
+  @keyframes writingGlyphPop{0%{opacity:.05;transform:scale(.96);transform-origin:512px 470px}100%{opacity:.72;transform:scale(1);transform-origin:512px 470px}}
+  .writing-path-shadow{fill:none;stroke:#fff;stroke-width:82;stroke-linecap:butt;stroke-linejoin:round;opacity:.86}
+  .writing-path-guide{fill:none;stroke-width:52;stroke-linecap:butt;stroke-linejoin:round;opacity:.70}
+  .writing-path-muted{fill:none;stroke:#CBD5E1;stroke-width:40;stroke-linecap:butt;stroke-linejoin:round;opacity:.28}
+  .writing-path-done{fill:none;stroke-width:46;stroke-linecap:butt;stroke-linejoin:round;opacity:.38}
+  .writing-path-hit{fill:none;stroke:transparent;stroke-width:130;stroke-linecap:butt;stroke-linejoin:round;pointer-events:none}
+  .writing-demo-line{fill:none;stroke-width:52;stroke-linecap:butt;stroke-linejoin:round;opacity:.92;pathLength:100;stroke-dasharray:100;stroke-dashoffset:100;animation:writingDraw .85s ease-out forwards;animation-delay:var(--delay,0s)}
   @keyframes writingDraw{to{stroke-dashoffset:0}}
   .writing-trace{fill:none;stroke:#111827;stroke-width:34;stroke-linecap:round;stroke-linejoin:round;opacity:.76;pointer-events:none}
+  .writing-trace-done{fill:none;stroke:#111827;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;opacity:.54;pointer-events:none}
   .writing-start-dot{stroke:#fff;stroke-width:14;filter:drop-shadow(0 6px 0 rgba(0,0,0,.16));pointer-events:none}
   .writing-num{font-size:58px;font-weight:900;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none}
   .writing-num-bg{stroke:#fff;stroke-width:12;filter:drop-shadow(0 6px 0 rgba(0,0,0,.16));pointer-events:none}
@@ -354,7 +364,7 @@
   @media(min-width:480px){.trophy-grid{grid-template-columns:repeat(3,1fr)}}
 
   /* Calendar — 保護者向けダッシュボード */
-  #tab-calendar{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif}
+  #tab-calendar{font-family:"Kosugi Maru","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif}
   .dash-title{font-size:13px;font-weight:800;color:#4B5563;letter-spacing:.06em;margin:6px 2px 4px}
   .dash-card{background:#fff;border:1.5px solid #E5E7EB;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 0 rgba(0,0,0,.04)}
 
@@ -632,7 +642,7 @@
       <div class="writing-box">
         <div class="writing-head">
           <div class="writing-title" id="writingTitle">あ を かこう！</div>
-          <div class="writing-badge" id="writingBadge">1かいめ / 1かい</div>
+          <div class="writing-badge" id="writingBadge">1かいめ / 3かい</div>
         </div>
         <div class="writing-message" id="writingMessage">おてほんを みてね</div>
         <div class="writing-stage" id="writingStage"></div>
@@ -861,9 +871,9 @@
     {id:"p7",       ic:"✖️", nm:"7のだん マスター", ds:"7のだん ぜんもんせいかい"},
     {id:"p8",       ic:"✖️", nm:"8のだん マスター", ds:"8のだん ぜんもんせいかい"},
     {id:"p9",       ic:"✖️", nm:"9のだん マスター", ds:"9のだん ぜんもんせいかい"},
-    {id:"pe",       ic:"✖️", nm:"やさしいランダム マスター", ds:"1〜4のだん ぜんもんせいかい"},
-    {id:"pn",       ic:"✖️", nm:"ふつうランダム マスター", ds:"1〜6のだん ぜんもんせいかい"},
-    {id:"pa",       ic:"✖️", nm:"ぜんぶランダム マスター", ds:"1〜9のだん ぜんもんせいかい"},
+    {id:"pe",       ic:"✖️", nm:"やさしいランダム マスター", ds:"2〜4のだん ぜんもんせいかい"},
+    {id:"pn",       ic:"✖️", nm:"ふつうランダム マスター", ds:"2〜6のだん ぜんもんせいかい"},
+    {id:"pa",       ic:"✖️", nm:"ぜんぶランダム マスター", ds:"2〜9のだん ぜんもんせいかい"},
     {id:"tokyo",    ic:"🗼", nm:"とうきょう とうちゃく", ds:"とうきょう まで すすんだ"},
     {id:"sapporo",  ic:"🏆", nm:"さっぽろ せいは！",     ds:"さっぽろ に とうちゃく！"},
     {id:"all",      ic:"👑", nm:"ぜんモード せいは",      ds:"ぜんぶの れっしゃで マスター"},
@@ -912,9 +922,9 @@
     {id:"mul_7", type:"multiply", cls:"m2", name:"7のだん", desc:"7×1〜7×9 ＋ 7のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p7"},
     {id:"mul_8", type:"multiply", cls:"m3", name:"8のだん", desc:"8×1〜8×9 ＋ 8のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p8"},
     {id:"mul_9", type:"multiply", cls:"m4", name:"9のだん", desc:"9×1〜9×9 ＋ 9のだんランダム5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"p9"},
-    {id:"mul_easy", type:"multiply", cls:"m2", name:"やさしいランダム", desc:"1〜4のだんから 5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pe"},
-    {id:"mul_normal", type:"multiply", cls:"m3", name:"ふつうランダム", desc:"1〜6のだんから 5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pn"},
-    {id:"mul_all", type:"multiply", cls:"m5", name:"ぜんぶランダム", desc:"1〜9のだんから 5もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pa"},
+    {id:"mul_easy", type:"multiply", cls:"m2", name:"やさしいランダム", desc:"2〜4のだんから 10もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pe"},
+    {id:"mul_normal", type:"multiply", cls:"m3", name:"ふつうランダム", desc:"2〜6のだんから 10もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pn"},
+    {id:"mul_all", type:"multiply", cls:"m5", name:"ぜんぶランダム", desc:"2〜9のだんから 10もん", svg:`<svg viewBox="0 0 60 40"><rect x="4" y="7" width="52" height="26" rx="7" fill="#EF4444" stroke="#7F1D1D" stroke-width="2"/><rect x="10" y="12" width="40" height="8" rx="2" fill="#FEE2E2"/><text x="30" y="31" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">×</text><circle cx="15" cy="34" r="3" fill="#222"/><circle cx="45" cy="34" r="3" fill="#222"/></svg>`, trophy:"pa"},
 
     // ひらがなモード（絵だけを見て、4択で選ぶ）
     {id:"hira_fruits",   type:"hiragana", cls:"m1", name:"フルーツ",   desc:"くだものの えを ひらがなで", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="6" fill="#EF5350" stroke="#B71C1C" stroke-width="2"/><text x="27" y="30" text-anchor="middle" font-size="22">🍎</text></svg>`, trophy:"h1"},
@@ -923,8 +933,8 @@
     {id:"hira_vehicles", type:"hiragana", cls:"m4", name:"のりもの",   desc:"のりものの えを ひらがなで", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="6" fill="#29B6F6" stroke="#01579B" stroke-width="2"/><text x="27" y="30" text-anchor="middle" font-size="22">🚗</text></svg>`, trophy:"h4"},
     {id:"hira_mix",      type:"hiragana", cls:"m5", name:"スペシャル", desc:"首都圏のでんしゃ写真 50しゅるい", svg:modeTrainPhotoIcon('Series-E5-U44_Hayabusa-2.jpg','写真'), trophy:"h5"},
 
-    // かきかたモード（まずは「あ行」だけ）
-    {id:"write_a_row", type:"writing", cls:"m2", name:"あ行", desc:"テスト中：あ・い・う・え・お を 1かいずつ なぞる", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="8" fill="#FB923C" stroke="#9A3412" stroke-width="2"/><text x="27" y="28" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">あ</text></svg>`},
+    // かきかたモード（階層表示は renderWritingModes で制御）
+    {id:"write_a_row", type:"writing", cls:"m2", name:"あ行", desc:"あ・い・う・え・お を 3かいずつ なぞる", svg:`<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="8" fill="#FB923C" stroke="#9A3412" stroke-width="2"/><text x="27" y="28" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">あ</text></svg>`},
     // 時計モード
     {id:"clock_hour", type:"clock", cls:"m1", name:"ぴったり じかん",   desc:"〇じ ちょうど（3じ/6じ etc）", svg:`<svg viewBox="0 0 54 40"><circle cx="27" cy="20" r="16" fill="#fff" stroke="#0D2E4E" stroke-width="2"/><circle cx="27" cy="20" r="12" fill="#FFFDE7"/><line x1="27" y1="20" x2="27" y2="12" stroke="#0B6FC6" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="20" x2="35" y2="20" stroke="#E4002B" stroke-width="1.8" stroke-linecap="round"/><circle cx="27" cy="20" r="1.5" fill="#0D2E4E"/></svg>`, trophy:"ct1"},
     {id:"clock_half", type:"clock", cls:"m2", name:"30ぷん じかん",     desc:"〇じ 00ふん/30ふん",            svg:`<svg viewBox="0 0 54 40"><circle cx="27" cy="20" r="16" fill="#fff" stroke="#0D2E4E" stroke-width="2"/><circle cx="27" cy="20" r="12" fill="#FFFDE7"/><line x1="27" y1="20" x2="27" y2="28" stroke="#E4002B" stroke-width="1.8" stroke-linecap="round"/><line x1="27" y1="20" x2="31" y2="16" stroke="#0B6FC6" stroke-width="2.5" stroke-linecap="round"/><circle cx="27" cy="20" r="1.5" fill="#0D2E4E"/></svg>`, trophy:"ct2"},
@@ -1374,8 +1384,8 @@
       $('menuSubtitle').textContent = 'えを見て、4つの ことばから えらぶよ！';
     } else if (currentGenre === 'writing'){
       $('boardTitle').textContent = '◀ かきかた れんしゅう ▶';
-      $('menuTitle').textContent = 'ゆびで なぞって ひらがなを かこう';
-      $('menuSubtitle').textContent = 'まずは「あ行」だけ。おてほんの線をそのまま なぞるよ！';
+      $('menuTitle').textContent = 'かく しゅるいを えらぼう';
+      $('menuSubtitle').textContent = '数字・ひらがな・カタカナ・アルファベットを 3かいずつ れんしゅうするよ！';
     } else if (currentGenre === 'clock'){
       $('boardTitle').textContent = '◀ どの じかんレベル？ ▶';
       $('menuTitle').textContent = 'とけい チャレンジ';
@@ -1391,6 +1401,10 @@
     }
     const cw = document.querySelector('.count-wrap');
     if (cw) cw.classList.toggle('hide', currentGenre === 'writing');
+    if (currentGenre === 'writing'){
+      renderWritingModes(wrap);
+      return;
+    }
     MODES.filter(m => m.type === currentGenre).forEach(m=>{
       const gotMaster = save.cleared[m.id];
       const btn = document.createElement('button');
@@ -1407,21 +1421,99 @@
     });
   }
 
+  let writingMenuLevel = 'root';
+  function writingIconSvg(label, color='#FB923C'){
+    return `<svg viewBox="0 0 54 40"><rect x="4" y="6" width="46" height="28" rx="8" fill="${color}" stroke="#9A3412" stroke-width="2"/><text x="27" y="28" text-anchor="middle" font-size="18" font-weight="900" fill="#fff">${label}</text></svg>`;
+  }
+  function writingModeButton(m, onClick){
+    const btn = document.createElement('button');
+    btn.className = `mode ${m.cls || 'm2'}`;
+    btn.innerHTML = `<div class="icon">${m.svg || writingIconSvg(m.icon || '字')}</div><div><div class="name">${m.name}</div><div class="desc">${m.desc || ''}</div></div><div class="arrow">▶</div>`;
+    btn.addEventListener('click', onClick);
+    return btn;
+  }
+  function renderWritingModes(wrap){
+    wrap.innerHTML = '';
+    if (writingMenuLevel === 'root'){
+      $('boardTitle').textContent = '◀ かきかた れんしゅう ▶';
+      $('menuTitle').textContent = 'かく しゅるいを えらぼう';
+      $('menuSubtitle').textContent = '数字・ひらがな・カタカナ・アルファベットを 3かいずつ れんしゅうするよ！';
+      const items = [
+        {id:'write_numbers', name:'数字', desc:'0〜9 を そのまま れんしゅう', cls:'m1', icon:'123', svg:writingIconSvg('123','#0B6FC6'), action:'start'},
+        {id:'hiragana', name:'ひらがな', desc:'あ行・か行・濁音・半濁音など', cls:'m2', icon:'あ', svg:writingIconSvg('あ','#FB923C'), action:'nav'},
+        {id:'katakana', name:'カタカナ', desc:'ア行・カ行・濁音・半濁音など', cls:'m3', icon:'ア', svg:writingIconSvg('ア','#00BCD4'), action:'nav'},
+        {id:'write_alphabet', name:'アルファベット', desc:'A〜Z を そのまま れんしゅう', cls:'m4', icon:'ABC', svg:writingIconSvg('ABC','#7C3AED'), action:'start'}
+      ];
+      items.forEach(m=>wrap.appendChild(writingModeButton(m, ()=>{
+        if (m.action === 'nav'){ writingMenuLevel = m.id; renderModes(); }
+        else startWriting(m.id);
+      })));
+      return;
+    }
+    const isHira = writingMenuLevel === 'hiragana';
+    $('boardTitle').textContent = isHira ? '◀ ひらがな の かきかた ▶' : '◀ カタカナ の かきかた ▶';
+    $('menuTitle').textContent = isHira ? 'ひらがなの 行を えらぼう' : 'カタカナの 行を えらぼう';
+    $('menuSubtitle').textContent = '濁音・半濁音も ここから えらべるよ';
+    wrap.appendChild(writingModeButton({name:'← もどる', desc:'かきかた の しゅるいに もどる', cls:'m1', svg:writingIconSvg('戻','#64748B')}, ()=>{ writingMenuLevel='root'; renderModes(); }));
+    const courses = Object.values(WRITING_COURSES).filter(c=>c.group === writingMenuLevel);
+    courses.forEach((c,i)=>wrap.appendChild(writingModeButton({id:c.id, name:c.name, desc:c.desc, cls:['m1','m2','m3','m4','m5'][i%5], svg:writingIconSvg(c.icon || c.charsText[0], c.group === 'hiragana' ? '#FB923C' : '#00BCD4')}, ()=>startWriting(c.id))));
+  }
+
 
   // ===== Kakikata data / tracing =====
   // 画数：あ=3、い=2、う=2、え=2、お=3。なぞる線・判定線は同じ data.strokes を使い、文字形状は同じ字形データの parts で表示。
   const WRITING_COLORS = ['#E4002B','#0B6FC6','#2DAA6E','#F59E0B'];
-  const WRITING_REPEAT_TARGET = 1; // テスト中は1回。本番で3回に戻す場合は 3 に変更。
+  const WRITING_REPEAT_TARGET = 3; // 本番仕様：1文字につき3回なぞる。
   // あ行の文字形状は AnimCJK のかな用SVG/graphicsデータを元に、
   // 練習用に「通常の画数」へまとめ直して使用。外部通信はせず、このHTML内だけで完結。
-  const WRITING_CHARS = [
-    {ch:'あ', parts:[[`M660,689C637,689 616,679 597,668C570,655 542,648 514,639C464,626 414,615 363,609C319,606 273,607 231,622C211,630 195,646 174,652C167,652 162,643 167,637C181,607 209,587 239,575C284,557 335,556 384,560C462,568 538,593 615,610C639,616 665,619 686,633C695,639 705,646 709,656C712,666 706,676 697,679C685,685 672,689 660,689Z`],[`M334,772C328,770 318,766 320,757C325,746 337,742 346,735C356,729 369,722 369,708C370,687 365,667 363,646C347,530 335,412 345,294C349,258 354,221 366,185C376,158 389,132 410,112C422,103 441,105 449,119C459,136 457,157 448,174C439,190 424,201 415,218C402,245 399,276 396,305C388,397 397,489 415,579C422,613 429,648 447,677C454,692 462,708 459,725C455,740 441,748 427,753C398,764 366,770 334,772Z`],[`M559,469C556,469 552,465 555,462C565,445 581,429 580,408C580,388 567,371 558,355C517,288 461,230 402,179C361,146 315,120 264,108C249,105 232,105 220,116C207,129 208,149 210,166C216,210 244,247 278,275C306,298 337,320 372,335C372,348 372,360 373,373C326,357 282,332 241,304C201,275 165,237 151,188C139,151 143,107 168,76C183,57 206,44 230,43C278,40 324,59 364,83C440,130 506,192 558,264C581,298 602,333 619,370C626,386 632,403 629,419C625,433 615,444 604,453C591,463 575,469 559,469Z`,`M602,416C565,415 528,411 492,406C447,399 405,385 363,369C363,357 363,344 363,332C414,352 467,370 523,376C563,382 604,385 644,381C689,376 736,363 769,331C793,309 806,278 807,246C808,225 806,203 800,183C776,126 725,83 671,54C627,29 580,10 531,-2C521,-6 509,-9 501,-17C498,-21 497,-25 498,-30C549,-27 600,-18 650,-6C715,11 780,39 830,86C861,116 887,155 891,199C899,269 861,343 796,374C736,404 668,416 602,416Z`]], strokes:[`M 174 178 L 251 228 L 440 226 L 697 161`,`M 331 57 L 420 105 L 373 308 L 367 552 L 409 648 L 431 697`,`M 570 360 L 610 404 L 460 647 L 200 756 L 181 602 L 342 476 L 466 434 L 641 419 L 754 440 L 838 526 L 845 683 L 703 789 L 508 842`]},
-    {ch:'い', parts:[[`M103,663C94,663 83,658 84,648C85,635 97,626 106,617C124,597 125,568 131,542C154,439 174,332 222,237C251,180 293,129 345,91C358,82 376,79 390,89C399,94 402,106 402,116C403,137 398,159 402,181C405,212 414,242 421,272C422,280 424,291 415,294C406,296 398,289 395,282C376,255 361,225 341,198C339,194 334,193 332,197C310,214 290,234 276,258C256,289 244,325 233,360C221,400 210,439 202,479C195,515 189,552 188,588C188,601 194,613 193,626C190,638 177,643 167,649C147,658 125,663 103,663Z`],[`M671,640C663,641 654,630 661,623C689,591 721,562 744,525C787,461 813,385 820,309C824,285 834,262 849,243C858,235 872,232 883,239C895,246 899,261 901,274C905,301 900,328 895,355C878,428 837,494 787,550C757,581 724,611 688,635C683,638 677,641 671,640Z`]], strokes:[`M 95 169 L 149 202 L 222 509 L 272 624 L 369 708 L 372 622 L 406 548`,`M 678 193 L 754 262 L 836 392 L 867 559`]},
-    {ch:'う', parts:[[`M406,799C399,799 389,797 388,789C390,779 400,776 406,770C444,745 485,724 527,707C562,693 598,681 635,672C650,671 668,676 674,691C680,708 669,726 656,736C640,750 619,758 597,758C544,764 491,775 439,792C429,796 418,799 406,799Z`],[`M581,557C514,556 450,533 386,515C345,502 304,485 261,484C243,485 226,490 208,489C199,486 200,474 206,469C224,447 248,428 277,425C299,422 321,430 341,440C373,457 406,473 440,484C490,503 543,517 597,519C619,518 642,509 655,490C673,464 672,431 671,400C667,324 640,250 604,183C572,122 532,66 492,10C485,2 476,-7 478,-19C482,-28 495,-27 502,-22C513,-13 521,-1 531,8C602,82 666,163 710,256C734,305 751,360 747,415C743,457 726,500 693,528C662,553 620,558 581,557Z`]], strokes:[`M 400 33 L 654 125`,`M 213 343 L 286 370 L 494 292 L 610 280 L 684 314 L 718 382 L 672 610 L 492 831`]},
-    {ch:'え', parts:[[`M406,799C399,799 388,797 388,789C389,779 399,775 406,770C443,744 485,724 527,707C562,693 598,679 635,672C650,669 668,676 674,691C680,708 669,725 656,736C640,749 619,756 597,758C544,763 491,775 439,792C429,795 418,799 406,799Z`],[`M620,587C595,585 572,573 548,565C460,536 374,503 285,478C263,472 240,474 217,475C208,475 197,479 188,473C182,470 184,461 188,455C197,444 208,434 219,425C233,415 249,410 266,410C286,411 304,420 323,427C388,451 450,481 514,508C532,515 549,522 566,530C520,475 472,423 422,373C369,321 316,270 261,221C236,199 206,183 184,158C167,140 168,111 173,87C176,75 184,61 198,62C210,62 218,72 227,80C251,102 273,125 299,145C326,165 356,187 390,188C407,189 426,187 440,177C454,168 464,154 474,141C500,109 521,72 558,52C595,31 638,27 680,26C719,25 759,26 798,27C816,27 835,27 852,33C862,37 872,46 869,57C865,71 851,78 840,85C822,96 800,102 779,97C749,90 719,91 689,91C653,91 617,93 584,107C560,116 544,138 527,157C502,184 473,210 435,219C397,229 354,223 320,203C315,200 313,198 318,203C406,288 494,372 585,453C608,474 632,494 657,512C664,517 675,520 679,528C684,539 673,549 667,557C656,571 640,588 620,587Z`]], strokes:[`M 400 33 L 654 125`,`M 197 356 L 277 380 L 618 254 L 654 283 L 608 300 L 203 682 L 204 724 L 333 629 L 407 612 L 482 642 L 596 756 L 793 755 L 855 773`]},
-    {ch:'お', parts:[[`M504,619C474,619 450,598 422,590C380,575 336,567 292,558C258,553 224,552 190,557C162,562 137,576 113,589C107,592 101,588 100,583C98,571 107,562 113,554C137,525 173,510 210,506C269,499 328,512 385,525C424,535 463,545 502,554C520,559 538,568 549,585C554,596 546,610 534,612C525,617 514,620 504,619Z`],[`M295,811C287,812 276,808 275,798C274,788 285,783 291,776C301,766 309,752 308,737C310,681 306,624 306,567C304,546 301,524 303,502C303,420 303,338 302,256C303,229 298,203 297,176C293,142 290,108 282,75C278,62 273,47 261,40C248,34 235,40 223,44C204,51 204,-9 223,-16C244,-24 268,-32 290,-24C313,-17 326,4 334,26C348,64 349,106 352,146C355,198 357,249 358,301C357,331 357,362 357,392C358,453 362,513 362,573C364,617 364,662 373,705C376,721 383,737 379,753C373,774 356,790 337,799C324,806 310,812 295,811Z`,`M643,397C558,396 475,370 399,334C359,315 320,293 281,271C241,247 202,222 169,189C146,164 129,131 133,97C134,69 145,41 167,22C185,4 199,-6 223,-16C242,-23 242,37 223,44C202,54 191,64 180,83C170,107 180,135 196,154C224,190 265,212 303,236C351,266 402,291 456,309C485,319 515,328 546,335C602,346 661,346 714,325C750,309 781,277 786,237C791,204 785,170 768,142C743,100 703,71 663,45C638,29 612,16 587,1C580,-3 573,-12 578,-20C583,-29 594,-27 602,-25C644,-15 684,3 721,25C756,45 789,70 816,100C839,126 854,158 856,193C858,221 856,251 847,278C839,302 824,324 806,340C780,365 748,381 714,390C691,396 667,398 643,397Z`],[`M713,723C701,724 694,707 704,700C726,683 752,669 768,645C791,616 807,583 826,553C837,539 857,532 874,537C886,543 889,558 889,571C888,595 873,616 859,635C837,662 810,687 778,701C760,710 741,717 722,722C719,723 716,723 713,723Z`]], strokes:[`M 111 243 L 174 283 L 327 282 L 535 229`,`M 287 20 L 338 60 L 311 767 L 282 818 L 234 826 L 218 820 L 165 756 L 158 684 L 243 591 L 525 456 L 748 463 L 835 611 L 763 740 L 588 837`,`M 710 109 L 794 149 L 868 270`]}
+  const WRITING_A_ROW_CHARS = [
+    {ch:'あ', parts:[], strokes:[`M 174 178 L 251 228 L 440 226 L 697 161`,`M 331 57 L 420 105 L 373 308 L 367 552 L 409 648 L 431 697`,`M 570 360 L 610 404 L 460 647 L 200 756 L 181 602 L 342 476 L 466 434 L 641 419 L 754 440 L 838 526 L 845 683 L 703 789 L 508 842`]},
+    {ch:'い', parts:[], strokes:[`M 95 169 L 149 202 L 222 509 L 272 624 L 369 708 L 372 622 L 406 548`,`M 678 193 L 754 262 L 836 392 L 867 559`]},
+    {ch:'う', parts:[], strokes:[`M 400 33 L 654 125`,`M 213 343 L 286 370 L 494 292 L 610 280 L 684 314 L 718 382 L 672 610 L 492 831`]},
+    {ch:'え', parts:[], strokes:[`M 400 33 L 654 125`,`M 197 356 L 277 380 L 618 254 L 654 283 L 608 300 L 203 682 L 204 724 L 333 629 L 407 612 L 482 642 L 596 756 L 793 755 L 855 773`]},
+    {ch:'お', parts:[], strokes:[`M 111 243 L 174 283 L 327 282 L 535 229`,`M 287 20 L 338 60 L 311 767 L 282 818 L 234 826 L 218 820 L 165 756 L 158 684 L 243 591 L 525 456 L 748 463 L 835 611 L 763 740 L 588 837`,`M 710 109 L 794 149 L 868 270`]}
   ];
-  const writingState = { mode:'write_a_row', chars:WRITING_CHARS, charIndex:0, repeat:1, strokeIndex:0, phase:'demo', samples:[], active:false, points:[], bins:null, outCount:0, moveCount:0, maxProgress:0 };
+  const WRITING_A_ROW_MAP = Object.fromEntries(WRITING_A_ROW_CHARS.map(c=>[c.ch,c]));
+  function makeFontTraceChar(ch){ return {ch, fontTrace:true, parts:[], strokes:['__FONT_GLYPH__']}; }
+  function makeWritingChars(text){ return [...text].map(ch=>WRITING_A_ROW_MAP[ch] || makeFontTraceChar(ch)); }
+  const WRITING_COURSES = {
+    write_numbers: {id:'write_numbers', group:'root', name:'数字', icon:'123', desc:'0〜9 を 3かいずつ なぞる', charsText:'0123456789', chars:makeWritingChars('0123456789')},
+    write_alphabet:{id:'write_alphabet', group:'root', name:'アルファベット', icon:'ABC', desc:'A〜Z を 3かいずつ なぞる', charsText:'ABCDEFGHIJKLMNOPQRSTUVWXYZ', chars:makeWritingChars('ABCDEFGHIJKLMNOPQRSTUVWXYZ')},
+    write_a_row:  {id:'write_a_row', group:'hiragana', name:'あ行', icon:'あ', desc:'あ・い・う・え・お', charsText:'あいうえお', chars:makeWritingChars('あいうえお')},
+    write_ka_row: {id:'write_ka_row', group:'hiragana', name:'か行', icon:'か', desc:'か・き・く・け・こ', charsText:'かきくけこ', chars:makeWritingChars('かきくけこ')},
+    write_sa_row: {id:'write_sa_row', group:'hiragana', name:'さ行', icon:'さ', desc:'さ・し・す・せ・そ', charsText:'さしすせそ', chars:makeWritingChars('さしすせそ')},
+    write_ta_row: {id:'write_ta_row', group:'hiragana', name:'た行', icon:'た', desc:'た・ち・つ・て・と', charsText:'たちつてと', chars:makeWritingChars('たちつてと')},
+    write_na_row: {id:'write_na_row', group:'hiragana', name:'な行', icon:'な', desc:'な・に・ぬ・ね・の', charsText:'なにぬねの', chars:makeWritingChars('なにぬねの')},
+    write_ha_row: {id:'write_ha_row', group:'hiragana', name:'は行', icon:'は', desc:'は・ひ・ふ・へ・ほ', charsText:'はひふへほ', chars:makeWritingChars('はひふへほ')},
+    write_ma_row: {id:'write_ma_row', group:'hiragana', name:'ま行', icon:'ま', desc:'ま・み・む・め・も', charsText:'まみむめも', chars:makeWritingChars('まみむめも')},
+    write_ya_row: {id:'write_ya_row', group:'hiragana', name:'や行', icon:'や', desc:'や・ゆ・よ', charsText:'やゆよ', chars:makeWritingChars('やゆよ')},
+    write_ra_row: {id:'write_ra_row', group:'hiragana', name:'ら行', icon:'ら', desc:'ら・り・る・れ・ろ', charsText:'らりるれろ', chars:makeWritingChars('らりるれろ')},
+    write_wa_row: {id:'write_wa_row', group:'hiragana', name:'わ行', icon:'わ', desc:'わ・を・ん', charsText:'わをん', chars:makeWritingChars('わをん')},
+    write_ga_row: {id:'write_ga_row', group:'hiragana', name:'が行', icon:'が', desc:'が・ぎ・ぐ・げ・ご', charsText:'がぎぐげご', chars:makeWritingChars('がぎぐげご')},
+    write_za_row: {id:'write_za_row', group:'hiragana', name:'ざ行', icon:'ざ', desc:'ざ・じ・ず・ぜ・ぞ', charsText:'ざじずぜぞ', chars:makeWritingChars('ざじずぜぞ')},
+    write_da_row: {id:'write_da_row', group:'hiragana', name:'だ行', icon:'だ', desc:'だ・ぢ・づ・で・ど', charsText:'だぢづでど', chars:makeWritingChars('だぢづでど')},
+    write_ba_row: {id:'write_ba_row', group:'hiragana', name:'ば行', icon:'ば', desc:'ば・び・ぶ・べ・ぼ', charsText:'ばびぶべぼ', chars:makeWritingChars('ばびぶべぼ')},
+    write_pa_row: {id:'write_pa_row', group:'hiragana', name:'ぱ行', icon:'ぱ', desc:'ぱ・ぴ・ぷ・ぺ・ぽ', charsText:'ぱぴぷぺぽ', chars:makeWritingChars('ぱぴぷぺぽ')},
+    write_hira_small:{id:'write_hira_small', group:'hiragana', name:'小さい文字', icon:'ゃ', desc:'ぁ・ぃ・ぅ・ぇ・ぉ・ゃ・ゅ・ょ・っ', charsText:'ぁぃぅぇぉゃゅょっ', chars:makeWritingChars('ぁぃぅぇぉゃゅょっ')},
+    write_kata_a_row: {id:'write_kata_a_row', group:'katakana', name:'ア行', icon:'ア', desc:'ア・イ・ウ・エ・オ', charsText:'アイウエオ', chars:makeWritingChars('アイウエオ')},
+    write_kata_ka_row:{id:'write_kata_ka_row', group:'katakana', name:'カ行', icon:'カ', desc:'カ・キ・ク・ケ・コ', charsText:'カキクケコ', chars:makeWritingChars('カキクケコ')},
+    write_kata_sa_row:{id:'write_kata_sa_row', group:'katakana', name:'サ行', icon:'サ', desc:'サ・シ・ス・セ・ソ', charsText:'サシスセソ', chars:makeWritingChars('サシスセソ')},
+    write_kata_ta_row:{id:'write_kata_ta_row', group:'katakana', name:'タ行', icon:'タ', desc:'タ・チ・ツ・テ・ト', charsText:'タチツテト', chars:makeWritingChars('タチツテト')},
+    write_kata_na_row:{id:'write_kata_na_row', group:'katakana', name:'ナ行', icon:'ナ', desc:'ナ・ニ・ヌ・ネ・ノ', charsText:'ナニヌネノ', chars:makeWritingChars('ナニヌネノ')},
+    write_kata_ha_row:{id:'write_kata_ha_row', group:'katakana', name:'ハ行', icon:'ハ', desc:'ハ・ヒ・フ・ヘ・ホ', charsText:'ハヒフヘホ', chars:makeWritingChars('ハヒフヘホ')},
+    write_kata_ma_row:{id:'write_kata_ma_row', group:'katakana', name:'マ行', icon:'マ', desc:'マ・ミ・ム・メ・モ', charsText:'マミムメモ', chars:makeWritingChars('マミムメモ')},
+    write_kata_ya_row:{id:'write_kata_ya_row', group:'katakana', name:'ヤ行', icon:'ヤ', desc:'ヤ・ユ・ヨ', charsText:'ヤユヨ', chars:makeWritingChars('ヤユヨ')},
+    write_kata_ra_row:{id:'write_kata_ra_row', group:'katakana', name:'ラ行', icon:'ラ', desc:'ラ・リ・ル・レ・ロ', charsText:'ラリルレロ', chars:makeWritingChars('ラリルレロ')},
+    write_kata_wa_row:{id:'write_kata_wa_row', group:'katakana', name:'ワ行', icon:'ワ', desc:'ワ・ヲ・ン', charsText:'ワヲン', chars:makeWritingChars('ワヲン')},
+    write_kata_ga_row:{id:'write_kata_ga_row', group:'katakana', name:'ガ行', icon:'ガ', desc:'ガ・ギ・グ・ゲ・ゴ', charsText:'ガギグゲゴ', chars:makeWritingChars('ガギグゲゴ')},
+    write_kata_za_row:{id:'write_kata_za_row', group:'katakana', name:'ザ行', icon:'ザ', desc:'ザ・ジ・ズ・ゼ・ゾ', charsText:'ザジズゼゾ', chars:makeWritingChars('ザジズゼゾ')},
+    write_kata_da_row:{id:'write_kata_da_row', group:'katakana', name:'ダ行', icon:'ダ', desc:'ダ・ヂ・ヅ・デ・ド', charsText:'ダヂヅデド', chars:makeWritingChars('ダヂヅデド')},
+    write_kata_ba_row:{id:'write_kata_ba_row', group:'katakana', name:'バ行', icon:'バ', desc:'バ・ビ・ブ・ベ・ボ', charsText:'バビブベボ', chars:makeWritingChars('バビブベボ')},
+    write_kata_pa_row:{id:'write_kata_pa_row', group:'katakana', name:'パ行', icon:'パ', desc:'パ・ピ・プ・ペ・ポ', charsText:'パピプペポ', chars:makeWritingChars('パピプペポ')},
+    write_kata_small:{id:'write_kata_small', group:'katakana', name:'小さい文字', icon:'ャ', desc:'ァ・ィ・ゥ・ェ・ォ・ャ・ュ・ョ・ッ', charsText:'ァィゥェォャュョッ', chars:makeWritingChars('ァィゥェォャュョッ')}
+  };
+  const WRITING_CHARS = WRITING_COURSES.write_a_row.chars;
+  const writingState = { mode:'write_a_row', courseName:'あ行', charsText:'あいうえお', chars:WRITING_CHARS, charIndex:0, repeat:1, strokeIndex:0, phase:'demo', samples:[], active:false, points:[], completedTraces:[], bins:null, outCount:0, moveCount:0, maxProgress:0, fontMask:null };
 
   function writingTotalUnits(){ return WRITING_CHARS.reduce((n,c)=>n+c.strokes.length*WRITING_REPEAT_TARGET,0); }
   function writingDoneUnits(){
@@ -1437,16 +1529,26 @@
   }
   function startWriting(mode){
     applyLanguage('ja');
+    const course = WRITING_COURSES[mode] || WRITING_COURSES.write_a_row;
     state.mode = mode;
-    writingState.mode = mode;
+    writingState.mode = course.id;
+    writingState.courseName = course.name;
+    writingState.charsText = course.charsText;
+    writingState.chars = course.chars;
     writingState.charIndex = 0;
     writingState.repeat = 1;
     writingState.strokeIndex = 0;
     writingState.phase = 'demo';
+    writingState.completedTraces = [];
     show(play);
     setWritingVisible(true);
     renderCombo();
     renderWriting();
+    if (document.fonts && document.fonts.ready){
+      document.fonts.ready.then(()=>{
+        if (state.mode === writingState.mode && !play.classList.contains('hide')) renderWriting();
+      }).catch(()=>{});
+    }
   }
   function currentWritingChar(){ return writingState.chars[writingState.charIndex]; }
   function writingProgressBar(){
@@ -1463,19 +1565,19 @@
     const isDemo = writingState.phase === 'demo';
     const isPass = writingState.phase === 'pass';
     $('writingTitle').textContent = isPass ? 'ごうかく！' : `${data.ch} を かこう！`;
-    $('writingBadge').textContent = isPass ? 'あ行 クリア' : `${writingState.repeat}かいめ / ${WRITING_REPEAT_TARGET}かい`;
+    $('writingBadge').textContent = isPass ? `${writingState.courseName} クリア` : `${writingState.repeat}かいめ / ${WRITING_REPEAT_TARGET}かい`;
     $('writingDemoBtn').classList.toggle('hide', isPass);
     $('writingNextBtn').classList.toggle('hide', isPass);
 
     if (isPass){
-      $('writingMessage').textContent = 'すごい！ あ・い・う・え・お が かけたね！';
-      $('writingStage').innerHTML = `<div class="writing-pass"><div class="big">🎉</div><h2>ごうかく！</h2><p>あ行を ぜんぶ 1かい れんしゅうできたよ！</p></div>`;
+      $('writingMessage').textContent = `すごい！ ${writingState.courseName} が ぜんぶ かけたね！`;
+      $('writingStage').innerHTML = `<div class="writing-pass"><div class="big">🎉</div><h2>ごうかく！</h2><p>${writingState.courseName}を ぜんぶ ${WRITING_REPEAT_TARGET}かい れんしゅうできたよ！</p></div>`;
       $('writingStrokeLegend').innerHTML = '';
       return;
     }
 
     const sIdx = writingState.strokeIndex;
-    const msg = isDemo ? 'おてほんを みてね' : `${sIdx+1}ばんめ：${colorName(sIdx)} せんを なぞってね`;
+    const msg = isDemo ? 'おてほんを みてね' : (data.fontTrace ? '文字の上を ゆびで なぞってね' : `${sIdx+1}ばんめ：${colorName(sIdx)} せんを なぞってね`);
     $('writingMessage').textContent = msg;
     $('writingNextBtn').textContent = isDemo ? 'なぞってみる' : 'このせんを やりなおす';
     $('writingDemoBtn').textContent = 'おてほんを もういちど';
@@ -1487,26 +1589,33 @@
   function colorName(i){ return ['あかい','あおい','みどりの','オレンジの'][i] || 'いろの'; }
   function writingSvg(data, isDemo){
     const current = writingState.strokeIndex;
-    let shapes = '';
-    data.parts.forEach((parts,i)=>{
-      const col = WRITING_COLORS[i%WRITING_COLORS.length];
-      const shapeCls = isDemo ? 'writing-shape-muted' : (i<current ? 'writing-shape-done' : (i===current ? 'writing-shape-guide' : 'writing-shape-muted'));
-      const fill = isDemo ? (i===0 ? '#FCA5A5' : i===1 ? '#93C5FD' : i===2 ? '#86EFAC' : '#FDBA74') : (i<=current ? col : '#CBD5E1');
-      parts.forEach(d=>{
-        shapes += `<path class="writing-shape-shadow" d="${d}"/>`;
-        shapes += `<path class="${shapeCls}" d="${d}" fill="${fill}"/>`;
-      });
-    });
-
+    if (data.fontTrace){
+      const col = WRITING_COLORS[current%WRITING_COLORS.length];
+      const doneTraces = !isDemo ? writingState.completedTraces.map(t=>{
+        const pts = (t.points || []).map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+        return pts ? `<polyline class="writing-trace-done" points="${pts}"></polyline>` : '';
+      }).join('') : '';
+      const glyph = isDemo
+        ? `<text class="writing-glyph-muted" x="512" y="470">${data.ch}</text><text class="writing-glyph-demo" x="512" y="470" fill="${col}">${data.ch}</text>`
+        : `<text class="writing-glyph-guide" x="512" y="470" fill="${col}">${data.ch}</text>`;
+      const hit = !isDemo ? `<g id="writingCompletedTraces">${doneTraces}</g><polyline id="writingTraceLine" class="writing-trace" points=""></polyline>` : '';
+      return `<svg id="writingSvg" viewBox="0 0 1024 900" role="img" aria-label="${data.ch} のかきかた">
+        <g class="writing-grid"><line x1="512" y1="40" x2="512" y2="860"/><line x1="90" y1="450" x2="934" y2="450"/><line x1="170" y1="105" x2="855" y2="795"/><line x1="855" y1="105" x2="170" y2="795"/></g>
+        ${glyph}${hit}
+      </svg>`;
+    }
+    // 背景文字を別フォントで置くと、見えている文字と判定線がズレるため、
+    // ここでは「表示線・なぞる線・判定線」をすべて同じ data.strokes だけから描画する。
     let lines = '';
     data.strokes.forEach((d,i)=>{
       const col = WRITING_COLORS[i%WRITING_COLORS.length];
+      lines += `<path class="writing-path-shadow" d="${d}"/>`;
       if (isDemo){
+        lines += `<path class="writing-path-muted" d="${d}" stroke="#CBD5E1"/>`;
         lines += `<path class="writing-demo-line" d="${d}" stroke="${col}" pathLength="100" style="--delay:${(i*.82).toFixed(2)}s"/>`;
       } else {
         const cls = i<current ? 'writing-path-done' : (i===current ? 'writing-path-guide' : 'writing-path-muted');
         const stroke = i<=current ? col : '#CBD5E1';
-        lines += `<path class="writing-path-shadow" d="${d}"/>`;
         lines += `<path class="${cls}" d="${d}" stroke="${stroke}"/>`;
       }
       if (isDemo || i===current){
@@ -1514,11 +1623,16 @@
         lines += `<circle class="writing-num-bg" cx="${p0.x}" cy="${p0.y}" r="52" fill="${col}"/><text class="writing-num" x="${p0.x}" y="${p0.y+3}">${i+1}</text>`;
       }
     });
-    const hit = !isDemo ? `<path id="writingCurrentPath" class="writing-path-hit" d="${data.strokes[current]}"/><polyline id="writingTraceLine" class="writing-trace" points=""></polyline>` : '';
+
+    const doneTraces = !isDemo ? writingState.completedTraces.map(t=>{
+      const pts = (t.points || []).map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+      return pts ? `<polyline class="writing-trace-done" points="${pts}"></polyline>` : '';
+    }).join('') : '';
+
+    const hit = !isDemo ? `<path id="writingCurrentPath" class="writing-path-hit" d="${data.strokes[current]}"/><g id="writingCompletedTraces">${doneTraces}</g><polyline id="writingTraceLine" class="writing-trace" points=""></polyline>` : '';
     const start = !isDemo ? `<circle id="writingStartDot" class="writing-start-dot" r="38" fill="${WRITING_COLORS[current%WRITING_COLORS.length]}"></circle>` : '';
     return `<svg id="writingSvg" viewBox="0 0 1024 900" role="img" aria-label="${data.ch} のかきかた">
       <g class="writing-grid"><line x1="512" y1="40" x2="512" y2="860"/><line x1="90" y1="450" x2="934" y2="450"/><line x1="170" y1="105" x2="855" y2="795"/><line x1="855" y1="105" x2="170" y2="795"/></g>
-      <g transform="translate(0,820) scale(1,-1)">${shapes}</g>
       ${lines}${hit}${start}
     </svg>`;
   }
@@ -1527,6 +1641,7 @@
     return m ? {x:+m[1], y:+m[2]} : {x:30,y:30};
   }
   function prepareWritingTrace(){
+    if (currentWritingChar().fontTrace) return prepareWritingFontTrace();
     const svg = $('writingSvg');
     const path = $('writingCurrentPath');
     const trace = $('writingTraceLine');
@@ -1547,6 +1662,55 @@
     svg.onpointercancel = writingPointerUp;
     trace.setAttribute('points','');
   }
+  function prepareWritingFontTrace(){
+    const svg = $('writingSvg');
+    const trace = $('writingTraceLine');
+    if (!svg || !trace) return;
+    const ch = currentWritingChar().ch;
+    const canvas = document.createElement('canvas');
+    canvas.width = 1024; canvas.height = 900;
+    const ctx = canvas.getContext('2d', {willReadFrequently:true});
+    ctx.clearRect(0,0,1024,900);
+    ctx.fillStyle = '#000';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '640px "Kosugi Maru", "Hiragino Maru Gothic ProN", "Rounded Mplus 1c", sans-serif';
+    ctx.fillText(ch, 512, 470);
+    const img = ctx.getImageData(0,0,1024,900).data;
+    const targetBins = new Set();
+    const step = 14, bx = 32, by = 28;
+    for (let y=0; y<900; y+=step){
+      for (let x=0; x<1024; x+=step){
+        const a = img[(y*1024+x)*4+3];
+        if (a > 20) targetBins.add(`${Math.floor(x/bx)}_${Math.floor(y/by)}`);
+      }
+    }
+    writingState.fontMask = {img, w:1024, h:900, targetBins, bx, by};
+    svg.onpointerdown = writingPointerDown;
+    svg.onpointermove = writingPointerMove;
+    svg.onpointerup = writingPointerUp;
+    svg.onpointercancel = writingPointerUp;
+    trace.setAttribute('points','');
+  }
+  function fontMaskHit(p){
+    const mask = writingState.fontMask;
+    if (!mask) return false;
+    const r = 18;
+    for (let dy=-r; dy<=r; dy+=6){
+      for (let dx=-r; dx<=r; dx+=6){
+        const x = Math.round(p.x + dx), y = Math.round(p.y + dy);
+        if (x < 0 || y < 0 || x >= mask.w || y >= mask.h) continue;
+        if (mask.img[(y*mask.w+x)*4+3] > 20) return true;
+      }
+    }
+    return false;
+  }
+  function fontMaskBin(p){
+    const mask = writingState.fontMask;
+    if (!mask) return '0_0';
+    return `${Math.floor(p.x/mask.bx)}_${Math.floor(p.y/mask.by)}`;
+  }
+
   function svgPoint(evt){
     const svg = $('writingSvg');
     const pt = svg.createSVGPoint();
@@ -1579,6 +1743,22 @@
     if (writingState.phase !== 'practice') return;
     evt.preventDefault();
     const p = svgPoint(evt);
+    if (currentWritingChar().fontTrace){
+      if (!fontMaskHit(p)){
+        flash('ng','文字のうえから はじめよう');
+        resetWritingAttempt('文字のうえから はじめよう');
+        return;
+      }
+      $('writingSvg').setPointerCapture(evt.pointerId);
+      writingState.active = true;
+      writingState.points = [p];
+      writingState.bins = new Set([fontMaskBin(p)]);
+      writingState.outCount = 0;
+      writingState.moveCount = 1;
+      writingState.maxProgress = 0;
+      updateWritingTrace();
+      return;
+    }
     const n = nearestSample(p);
     if (n.idx > Math.max(10, writingState.samples.length*.16) || n.dist > 185){
       flash('ng','ここから はじめよう');
@@ -1598,9 +1778,15 @@
     if (!writingState.active) return;
     evt.preventDefault();
     const p = svgPoint(evt);
-    const n = nearestSample(p);
     writingState.points.push(p);
     writingState.moveCount++;
+    if (currentWritingChar().fontTrace){
+      if (!fontMaskHit(p)) writingState.outCount++;
+      else writingState.bins.add(fontMaskBin(p));
+      updateWritingTrace();
+      return;
+    }
+    const n = nearestSample(p);
     if (n.dist > 210) writingState.outCount++;
     else {
       writingState.maxProgress = Math.max(writingState.maxProgress, n.t);
@@ -1612,9 +1798,16 @@
     if (!writingState.active) return;
     evt.preventDefault();
     writingState.active = false;
-    const coverage = writingState.bins ? writingState.bins.size / 21 : 0;
     const outRatio = writingState.moveCount ? writingState.outCount / writingState.moveCount : 1;
-    const ok = writingState.maxProgress >= .82 && coverage >= .30 && outRatio <= .48;
+    let ok;
+    if (currentWritingChar().fontTrace){
+      const target = writingState.fontMask ? Math.max(1, writingState.fontMask.targetBins.size) : 1;
+      const coverage = writingState.bins ? writingState.bins.size / target : 0;
+      ok = writingState.moveCount >= 10 && coverage >= .055 && outRatio <= .55;
+    } else {
+      const coverage = writingState.bins ? writingState.bins.size / 21 : 0;
+      ok = writingState.maxProgress >= .82 && coverage >= .30 && outRatio <= .48;
+    }
     if (ok) writingStrokeOK();
     else {
       flash('ng','もういちど');
@@ -1629,6 +1822,9 @@
     const data = currentWritingChar();
     showMaru();
     flash('ok', writingState.strokeIndex < data.strokes.length-1 ? `いいね！ つぎは ${writingState.strokeIndex+2}ばん` : `すごい！ ${data.ch} が かけたね！`);
+    if (writingState.points && writingState.points.length > 1){
+      writingState.completedTraces.push({ strokeIndex: writingState.strokeIndex, points: writingState.points.map(p=>({x:p.x, y:p.y})) });
+    }
     writingState.strokeIndex++;
     if (writingState.strokeIndex < data.strokes.length){
       setTimeout(()=>renderWriting(), 650);
@@ -1637,6 +1833,7 @@
     if (writingState.repeat < WRITING_REPEAT_TARGET){
       writingState.repeat++;
       writingState.strokeIndex = 0;
+      writingState.completedTraces = [];
       setTimeout(()=>{
         $('writingMessage').textContent = `${writingState.repeat}かいめ！ もういちど ${data.ch}`;
         renderWriting();
@@ -1648,6 +1845,7 @@
       writingState.charIndex++;
       writingState.repeat = 1;
       writingState.strokeIndex = 0;
+      writingState.completedTraces = [];
       writingState.phase = 'demo';
       setTimeout(()=>{
         renderWriting();
@@ -1675,6 +1873,7 @@
   function writingStartPractice(){
     if (writingState.phase === 'pass') return;
     writingState.phase = 'practice';
+    if (writingState.strokeIndex === 0) writingState.completedTraces = [];
     resetWritingAttempt('');
     renderWriting();
   }
@@ -1720,8 +1919,33 @@
     return pool;
   }
 
+  function buildRandomMultiplicationQuestions(maxDan){
+    // ランダム3コース専用：10問、1を使わない、各段（2〜maxDan）を必ず1回以上出す。
+    const requiredDans = [];
+    for (let a=2; a<=maxDan; a++) requiredDans.push(a);
+
+    const used = new Set();
+    const questions = requiredDans.map(a=>{
+      const b = rnd(2,9);
+      used.add(`${a}x${b}`);
+      return mulQuestion(a,b);
+    });
+
+    const pool = [];
+    for (let a=2; a<=maxDan; a++){
+      for (let b=2; b<=9; b++){
+        const key = `${a}x${b}`;
+        if (!used.has(key)) pool.push(mulQuestion(a,b));
+      }
+    }
+
+    pool.sort(()=>Math.random()-0.5);
+    return questions.concat(pool.slice(0, 10-questions.length)).sort(()=>Math.random()-0.5);
+  }
+
   function buildMultiplicationQuestions(mode){
     // 1〜9の段：固定9問 + その段だけからランダム5問。ランダム5問内は重複なし。
+    // ※段ごとのコースは変更しない。変更対象は下のランダム3コースのみ。
     const m = /^mul_(\d)$/.exec(mode || '');
     if (m){
       const dan = parseInt(m[1], 10);
@@ -1735,8 +1959,7 @@
     if (mode === 'mul_easy') maxDan = 4;
     else if (mode === 'mul_normal') maxDan = 6;
     else if (mode === 'mul_all') maxDan = 9;
-    const pool = makeMultiplicationRangePool(maxDan).sort(()=>Math.random()-0.5);
-    return pool.slice(0,5);
+    return buildRandomMultiplicationQuestions(maxDan);
   }
 
   function makeMultiplicationQuestion(mode){
@@ -2716,6 +2939,7 @@
       document.querySelectorAll('#genreTabs .genre').forEach(g=>g.classList.remove('active'));
       el.classList.add('active');
       currentGenre = el.dataset.genre;
+      if (currentGenre === 'writing') writingMenuLevel = 'root';
       renderModes();
     });
   });
